@@ -1,31 +1,66 @@
-const rowOneItems = [
-  "SAP",
-  "Oracle",
-  "Salesforce",
-  "HubSpot",
-  "Slack",
-  "Microsoft Teams",
-  "Google Workspace",
-  "Meta",
-  "WhatsApp",
-  "Internal APIs",
-  "Sovereign cloud",
-  "On-premise",
+import type { ComponentType } from "react";
+import { Cloud, Database, Server, ShieldCheck, Workflow } from "lucide-react";
+import { BsMicrosoft, BsMicrosoftTeams } from "react-icons/bs";
+import { FaAws } from "react-icons/fa";
+import {
+  SiConfluence,
+  SiGoogle,
+  SiGoogledrive,
+  SiHubspot,
+  SiJira,
+  SiMeta,
+  SiNotion,
+  SiSalesforce,
+  SiSap,
+  SiSlack,
+  SiWhatsapp,
+  SiZendesk,
+} from "react-icons/si";
+import { TbBrandAzure } from "react-icons/tb";
+
+type MarqueeItem = {
+  name: string;
+  icon: ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  color?: string;
+  kind: "brand" | "generic";
+};
+
+function OracleMark({ className }: { className?: string }) {
+  return <span className={className}>O</span>;
+}
+
+function ServiceNowMark({ className }: { className?: string }) {
+  return <span className={className}>SN</span>;
+}
+
+const rowOneItems: MarqueeItem[] = [
+  { name: "SAP", icon: SiSap, color: "#0FAAFF", kind: "brand" },
+  { name: "Oracle", icon: OracleMark, color: "#C74634", kind: "brand" },
+  { name: "Salesforce", icon: SiSalesforce, color: "#00A1E0", kind: "brand" },
+  { name: "HubSpot", icon: SiHubspot, color: "#FF5C35", kind: "brand" },
+  { name: "Slack", icon: SiSlack, color: "#611F69", kind: "brand" },
+  { name: "Microsoft Teams", icon: BsMicrosoftTeams, color: "#6264A7", kind: "brand" },
+  { name: "Google Workspace", icon: SiGoogle, color: "#4285F4", kind: "brand" },
+  { name: "Meta", icon: SiMeta, color: "#0467DF", kind: "brand" },
+  { name: "WhatsApp", icon: SiWhatsapp, color: "#25D366", kind: "brand" },
+  { name: "Internal APIs", icon: Workflow, kind: "generic" },
+  { name: "Sovereign cloud", icon: ShieldCheck, kind: "generic" },
+  { name: "On-premise", icon: Server, kind: "generic" },
 ];
 
-const rowTwoItems = [
-  "ServiceNow",
-  "Zendesk",
-  "Notion",
-  "Jira",
-  "Confluence",
-  "Microsoft 365",
-  "Google Drive",
-  "SharePoint",
-  "AWS",
-  "Azure",
-  "Private cloud",
-  "Custom CRMs",
+const rowTwoItems: MarqueeItem[] = [
+  { name: "ServiceNow", icon: ServiceNowMark, color: "#62D84E", kind: "brand" },
+  { name: "Zendesk", icon: SiZendesk, color: "#03363D", kind: "brand" },
+  { name: "Notion", icon: SiNotion, color: "#000000", kind: "brand" },
+  { name: "Jira", icon: SiJira, color: "#0052CC", kind: "brand" },
+  { name: "Confluence", icon: SiConfluence, color: "#172B4D", kind: "brand" },
+  { name: "Microsoft 365", icon: BsMicrosoft, color: "#D83B01", kind: "brand" },
+  { name: "Google Drive", icon: SiGoogledrive, color: "#4285F4", kind: "brand" },
+  { name: "SharePoint", icon: BsMicrosoft, color: "#038387", kind: "brand" },
+  { name: "AWS", icon: FaAws, color: "#FF9900", kind: "brand" },
+  { name: "Azure", icon: TbBrandAzure, color: "#0078D4", kind: "brand" },
+  { name: "Private cloud", icon: Cloud, kind: "generic" },
+  { name: "Custom CRMs", icon: Database, kind: "generic" },
 ];
 
 function MarqueeRow({
@@ -33,7 +68,7 @@ function MarqueeRow({
   animation,
   ariaLabel,
 }: {
-  items: string[];
+  items: MarqueeItem[];
   animation: string;
   ariaLabel: string;
 }) {
@@ -46,17 +81,37 @@ function MarqueeRow({
     >
       <div className={`flex w-max gap-3 ${animation} group-hover:[animation-play-state:paused]`}>
         {track.map((item, i) => (
-          <span
+          <MarqueePill
             key={i}
-            role={i < items.length ? "listitem" : undefined}
-            aria-hidden={i >= items.length || undefined}
-            className="whitespace-nowrap rounded-full border border-border bg-surface px-5 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:text-foreground"
-          >
-            {item}
-          </span>
+            item={item}
+            decorative={i >= items.length}
+          />
         ))}
       </div>
     </div>
+  );
+}
+
+function MarqueePill({ item, decorative }: { item: MarqueeItem; decorative: boolean }) {
+  const Icon = item.icon;
+  return (
+    <span
+      role={decorative ? undefined : "listitem"}
+      aria-hidden={decorative || undefined}
+      aria-label={decorative ? undefined : item.name}
+      className="group/item inline-flex whitespace-nowrap rounded-full border border-border/80 bg-surface px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--cyan)]/30 hover:text-foreground hover:shadow-elegant"
+    >
+      <span className="flex items-center gap-2.5">
+        <span
+          className="grid h-6 w-6 place-items-center rounded-full border border-border/70 bg-surface-muted/60 text-[var(--cyan)] transition-opacity group-hover/item:opacity-100"
+          style={item.kind === "brand" ? { color: item.color } : undefined}
+          aria-hidden
+        >
+          <Icon className="h-3.5 w-3.5 opacity-80 transition-opacity group-hover/item:opacity-100" aria-hidden />
+        </span>
+        <span>{item.name}</span>
+      </span>
+    </span>
   );
 }
 
