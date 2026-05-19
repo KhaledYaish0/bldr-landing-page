@@ -10,7 +10,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
+    <section className="section-bg-soft py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">How BLDR works</p>
@@ -49,6 +50,7 @@ export function HowItWorks() {
           );
         })}
       </ol>
+      </div>
     </section>
   );
 }

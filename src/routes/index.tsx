@@ -12,7 +12,7 @@ import { UseCases } from "@/components/sections/use-cases";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Capabilities } from "@/components/sections/capabilities";
 import { Personas } from "@/components/sections/personas";
-import { PlatformLayerOverview } from "@/components/sections/platform-layer";
+import { BldrSecurityLayers } from "@/components/sections/bldr-security-layers";
 import { AiLabs } from "@/components/sections/ai-labs";
 import { Resources } from "@/components/sections/resources";
 import { FinalCta } from "@/components/sections/final-cta";
@@ -73,24 +73,8 @@ function Index() {
 
           <HowItWorks />
           <Capabilities />
-
-          <LeadForm
-            id="technical-cta"
-            eyebrow="For technical evaluators"
-            title="Request a technical walkthrough."
-            description="A solutions architect will walk your team through architecture, integrations, and governance controls."
-            fields={[
-              { name: "email", label: "Work email", type: "email", placeholder: "you@company.com", required: true },
-              {
-                name: "role", label: "Your role", type: "select", required: true,
-                options: ["Enterprise Architect", "CIO / CDO", "CISO / Security", "IT / Platform", "Data / AI Lead", "Other"],
-              },
-            ]}
-            submitLabel="Request technical walkthrough"
-          />
-
           <Personas />
-          <PlatformLayerOverview />
+          <BldrSecurityLayers />
           <AiLabs />
           <Resources />
           <FinalCta />

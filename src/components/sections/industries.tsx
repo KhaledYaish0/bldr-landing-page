@@ -34,7 +34,7 @@ export function Industries() {
   const [active, setActive] = useState(industries[0]);
   const Icon = active.icon;
   return (
-    <section id="industries" className="bg-surface-muted/50 py-24 sm:py-32">
+    <section id="industries" className="section-bg-muted py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Industries</p>
@@ -56,7 +56,7 @@ export function Industries() {
                       "group flex w-full items-center gap-4 rounded-xl border p-4 text-left transition-all",
                       isActive
                         ? "border-[var(--cyan)]/40 bg-surface shadow-elegant"
-                        : "border-border bg-background/40 hover:bg-surface",
+                        : "border-border bg-surface/80 hover:bg-surface",
                     )}
                   >
                     <span
@@ -93,7 +93,7 @@ export function Industries() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex items-center justify-between rounded-lg border border-dashed border-border bg-background/50 p-4 text-sm">
+            <div className="mt-6 flex items-center justify-between rounded-lg border border-dashed border-border bg-surface p-4 text-sm shadow-sm">
               <span className="text-muted-foreground">Deployment options</span>
               <span className="flex gap-2">
                 {["Sovereign", "On-prem", "Private cloud"].map((d) => (

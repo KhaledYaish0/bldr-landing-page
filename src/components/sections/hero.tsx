@@ -16,12 +16,12 @@ const floats = [
 
 export function Hero() {
   return (
-    <section className="bg-soft-gradient relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section className="section-bg-base bg-soft-gradient relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="bg-grid absolute inset-0 opacity-[0.35] dark:opacity-20" aria-hidden />
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <div
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm"
             style={{ animation: "fade-up 0.6s ease-out both" }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan)]" />
@@ -56,7 +56,7 @@ export function Hero() {
             </a>
             <a
               href="#platform"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background/60 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-secondary"
             >
               Explore the Platform
             </a>
@@ -72,7 +72,7 @@ export function Hero() {
             {pills.map((p, i) => (
               <li
                 key={p}
-                className="rounded-full border border-border bg-background/70 px-3 py-1.5 text-xs text-foreground/80 backdrop-blur"
+                className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs text-foreground/80 shadow-sm"
                 style={{ animation: `fade-up 0.5s ${0.4 + i * 0.08}s ease-out both` }}
               >
                 {p}

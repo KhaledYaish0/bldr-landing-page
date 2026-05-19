@@ -10,7 +10,8 @@ const resources = [
 
 export function Resources() {
   return (
-    <section id="resources" className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
+    <section id="resources" className="section-bg-muted py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Resources</p>
@@ -32,12 +33,13 @@ export function Resources() {
               <span className="grid h-10 w-10 place-items-center rounded-md border border-border bg-surface-muted text-[var(--cyan)]">
                 <Icon className="h-5 w-5" />
               </span>
-              <span className="rounded-full border border-border bg-background/60 px-2 py-0.5 text-[10px] uppercase tracking-widest text-muted-foreground">{kind}</span>
+              <span className="rounded-full border border-border bg-surface-muted px-2 py-0.5 text-[10px] uppercase tracking-widest text-muted-foreground">{kind}</span>
             </div>
             <h3 className="mt-5 font-display text-base font-semibold text-foreground">{title}</h3>
             <p className="mt-2 text-xs text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">{audience}</p>
           </a>
         ))}
+      </div>
       </div>
     </section>
   );

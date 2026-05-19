@@ -105,7 +105,8 @@ const pillars = [
 
 export function Pillars() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
+    <section className="section-bg-base py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6">
       <div className="max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Three platform pillars</p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -134,6 +135,7 @@ export function Pillars() {
             </div>
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

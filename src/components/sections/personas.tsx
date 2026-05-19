@@ -15,7 +15,7 @@ export function Personas() {
   const [active, setActive] = useState(personas[0]);
   const Icon = active.icon;
   return (
-    <section className="bg-surface-muted/50 py-24 sm:py-32">
+    <section className="section-bg-base py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Built for every enterprise role</p>
@@ -37,7 +37,7 @@ export function Personas() {
                     "rounded-xl border p-4 text-left transition-all",
                     isActive
                       ? "border-[var(--cyan)]/40 bg-surface shadow-elegant scale-[1.02]"
-                      : "border-border bg-background/40 hover:bg-surface",
+                      : "border-border bg-surface/80 hover:bg-surface",
                   )}
                 >
                   <I className={cn("h-5 w-5", isActive ? "text-[var(--cyan)]" : "text-muted-foreground")} />

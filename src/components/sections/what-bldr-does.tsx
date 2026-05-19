@@ -19,7 +19,7 @@ export function WhatBldrDoes() {
   }, []);
 
   return (
-    <section id="platform" className="bg-surface-muted/50 py-24 sm:py-32">
+    <section id="platform" className="section-bg-soft py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">What BLDR does</p>
@@ -70,7 +70,7 @@ export function WhatBldrDoes() {
                       "flex items-center gap-3 rounded-lg border px-4 py-3 transition-all duration-500",
                       isActive
                         ? "border-[var(--cyan)]/50 bg-[var(--cyan)]/8 shadow-[0_0_24px_-8px_var(--cyan)]"
-                        : "border-border bg-background/60",
+                        : "border-border bg-surface shadow-sm",
                     )}
                   >
                     <span

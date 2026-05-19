@@ -1,3 +1,5 @@
+import { BldrLogo } from "@/components/site/bldr-logo";
+
 const cols = [
   { h: "Product", links: ["Agent Builder", "Knowledge Layer", "Integrations", "Multi-LLM Routing", "Analytics"] },
   { h: "Platform", links: ["BLDR OS", "MCP Tools", "Human-in-the-loop", "Sovereign Deployment", "Audit Logs"] },
@@ -9,14 +11,12 @@ const cols = [
 
 export function SiteFooter() {
   return (
-    <footer id="footer" className="border-t border-border bg-surface-muted/60">
+    <footer id="footer" className="section-bg-soft section-border-y border-t">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-md bg-[var(--navy)] text-background dark:bg-primary dark:text-primary-foreground">
-                <span className="font-display text-sm font-bold">B</span>
-              </span>
+              <BldrLogo />
               <span className="font-display text-base font-semibold tracking-tight text-foreground">BLDR</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
@@ -25,7 +25,7 @@ export function SiteFooter() {
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["ISO 27001", "SOC 2 Ready", "GDPR", "Sovereign-ready"].map((c) => (
-                <span key={c} className="rounded-full border border-border bg-background/60 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">{c}</span>
+                <span key={c} className="rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-medium text-muted-foreground shadow-sm">{c}</span>
               ))}
             </div>
           </div>
@@ -43,17 +43,6 @@ export function SiteFooter() {
                 </ul>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Inova AI Solutions. All rights reserved.</div>
-          <div className="flex flex-wrap gap-5">
-            <a href="#" className="hover:text-foreground">Privacy</a>
-            <a href="#" className="hover:text-foreground">Terms</a>
-            <a href="#" className="hover:text-foreground">Security</a>
-            <a href="#" className="hover:text-foreground">DPA</a>
-            <a href="#" className="hover:text-foreground">Cookie settings</a>
           </div>
         </div>
       </div>

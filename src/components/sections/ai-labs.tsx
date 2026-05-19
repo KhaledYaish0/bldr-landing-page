@@ -15,7 +15,7 @@ const tools = [
 
 export function AiLabs() {
   return (
-    <section id="ai-labs" className="bg-surface-muted/50 py-24 sm:py-32">
+    <section id="ai-labs" className="section-bg-soft py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
@@ -47,7 +47,7 @@ export function AiLabs() {
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
               <div className="mt-4 flex flex-wrap gap-1.5 text-[10px]">
                 {["Request", "Knowledge", "Response", "Governance"].map((s) => (
-                  <span key={s} className="rounded-full border border-border bg-background/60 px-2 py-0.5 text-foreground/80">{s}</span>
+                  <span key={s} className="rounded-full border border-border bg-surface px-2 py-0.5 text-foreground/80 shadow-sm">{s}</span>
                 ))}
               </div>
               <div className="mt-5 flex items-center gap-1 text-xs font-medium text-[var(--cyan)] opacity-0 transition-opacity group-hover:opacity-100">
@@ -59,7 +59,7 @@ export function AiLabs() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {tools.map(({ icon: Icon, t }) => (
-            <div key={t} className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-background/40 p-4">
+            <div key={t} className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-surface p-4 shadow-sm">
               <span className="grid h-9 w-9 place-items-center rounded-md border border-border bg-surface text-[var(--cyan)]">
                 <Icon className="h-4 w-4" />
               </span>

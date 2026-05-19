@@ -97,7 +97,8 @@ export function Capabilities() {
   const current = tabs.find((t) => t.id === active)!;
   const Visual = current.visual;
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
+    <section className="section-bg-muted py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6">
       <div className="max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Platform capabilities</p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -138,6 +139,7 @@ export function Capabilities() {
             <div className="mt-6 rounded-xl border border-border bg-surface-muted/60 p-5"><Visual /></div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

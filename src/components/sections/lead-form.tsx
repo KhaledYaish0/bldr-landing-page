@@ -16,9 +16,14 @@ interface LeadFormProps {
   tone?: "light" | "dark";
 }
 
+const lightSectionBg: Record<string, string> = {
+  "industry-cta": "section-bg-soft",
+};
+
 export function LeadForm({ id, eyebrow, title, description, fields, submitLabel, tone = "light" }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const lightBg = (id && lightSectionBg[id]) || "section-bg-soft";
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,21 +41,21 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
     <section
       id={id}
       className={cn(
-        "px-6 py-20",
+        "w-full px-6 py-20 sm:py-24",
         tone === "dark"
           ? "bg-[var(--navy)] text-background dark:bg-surface dark:text-foreground"
-          : "bg-surface-muted/60",
+          : lightBg,
       )}
     >
       <div
         className={cn(
-          "mx-auto grid max-w-6xl gap-8 rounded-2xl border p-8 sm:p-10 lg:grid-cols-12 lg:items-center",
+          "mx-auto grid w-full max-w-6xl gap-8 rounded-2xl border p-6 sm:p-8 lg:grid-cols-12 lg:items-start lg:gap-10 lg:p-10",
           tone === "dark"
             ? "border-white/10 bg-white/5 backdrop-blur dark:border-border dark:bg-surface-muted/60"
             : "border-border bg-surface shadow-elegant",
         )}
       >
-        <div className="lg:col-span-5">
+        <div className="min-w-0 lg:col-span-5">
           <p
             className={cn(
               "text-xs font-medium uppercase tracking-[0.18em]",
@@ -79,7 +84,7 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
           )}
         </div>
 
-        <div className="lg:col-span-7">
+        <div className="min-w-0 lg:col-span-7">
           {submitted ? (
             <div
               className={cn(
@@ -96,9 +101,15 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="grid gap-3 sm:grid-cols-2">
+            <form onSubmit={handleSubmit} className="grid w-full gap-3 sm:grid-cols-2">
               {fields.map((f) => (
-                <label key={f.name} className={cn("flex flex-col gap-1.5 text-xs font-medium", f.type === "select" || (f as any).long ? "sm:col-span-2" : "")}>
+                <label
+                  key={f.name}
+                  className={cn(
+                    "flex min-w-0 w-full flex-col gap-1.5 text-xs font-medium",
+                    f.type === "select" ? "sm:col-span-2" : "",
+                  )}
+                >
                   <span className={tone === "dark" ? "text-background/80 dark:text-foreground/80" : "text-foreground/80"}>
                     {f.label}
                   </span>
@@ -107,7 +118,7 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
                       name={f.name}
                       required={f.required}
                       defaultValue=""
-                      className="h-10 rounded-md border border-border bg-background px-3 text-sm text-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
+                      className="h-10 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
                     >
                       <option value="" disabled>Select…</option>
                       {f.options.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -119,7 +130,7 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
                       required={f.required}
                       placeholder={f.placeholder}
                       maxLength={f.maxLength ?? 255}
-                      className="h-10 rounded-md border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
+                      className="h-10 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
                     />
                   )}
                 </label>
@@ -127,7 +138,7 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
               {error && <p className="text-xs text-destructive sm:col-span-2">{error}</p>}
               <button
                 type="submit"
-                className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-[var(--navy)] px-5 py-3 text-sm font-medium text-background shadow-elegant transition-all hover:-translate-y-0.5 hover:shadow-glow dark:bg-primary dark:text-primary-foreground sm:col-span-2"
+                className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--navy)] px-5 py-3 text-sm font-medium text-background shadow-elegant transition-all hover:-translate-y-0.5 hover:shadow-glow dark:bg-primary dark:text-primary-foreground sm:col-span-2"
               >
                 {submitLabel}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

@@ -1,5 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 
+const legalLinks = [
+  { label: "Privacy", href: "#privacy" },
+  { label: "Terms", href: "#terms" },
+  { label: "Security", href: "#security" },
+  { label: "DPA", href: "#dpa" },
+  { label: "Cookie settings", href: "#cookies" },
+];
+
 const articles = [
   {
     cat: "Foundations",
@@ -30,7 +38,7 @@ const articles = [
 
 export function BlogSnapshot() {
   return (
-    <section aria-labelledby="latest-articles" className="border-t border-border bg-surface-muted/40 px-6 py-20">
+    <section aria-labelledby="latest-articles" className="section-bg-muted section-border-y border-t px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -49,9 +57,9 @@ export function BlogSnapshot() {
             <li key={a.title}>
               <a
                 href="#"
-                className="group flex items-start gap-4 border-b border-border py-5 transition-colors hover:bg-surface/40"
+                className="group flex items-start gap-4 border-b border-border py-5 transition-colors hover:bg-surface"
               >
-                <span className="mt-1.5 shrink-0 rounded-full border border-border bg-background/70 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+                <span className="mt-1.5 shrink-0 rounded-full border border-border bg-surface px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground shadow-sm">
                   {a.cat}
                 </span>
                 <div className="flex-1">
@@ -65,6 +73,17 @@ export function BlogSnapshot() {
             </li>
           ))}
         </ul>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+          <div>© {new Date().getFullYear()} Inova AI Solutions. All rights reserved.</div>
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((l) => (
+              <a key={l.label} href={l.href} className="transition-colors hover:text-foreground">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </section>
   );

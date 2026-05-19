@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/favicon.svg?url";
 
 function NotFoundComponent() {
   return (
@@ -72,16 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "BLDR | No-Code Enterprise AI Operating System" },
+      {
+        name: "description",
+        content:
+          "BLDR helps enterprises build, integrate, deploy, and govern AI agents with no-code execution and enterprise-grade control.",
+      },
+      { name: "author", content: "Inova AI Solutions" },
+      { property: "og:title", content: "BLDR | No-Code Enterprise AI Operating System" },
+      {
+        property: "og:description",
+        content:
+          "Build AI agents with prompts, ground them in enterprise knowledge, and deploy with governance built in.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "icon", href: faviconUrl, type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: faviconUrl },
       {
         rel: "stylesheet",
         href: appCss,
