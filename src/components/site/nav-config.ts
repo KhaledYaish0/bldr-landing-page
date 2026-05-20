@@ -4,7 +4,7 @@ export type NavItem = NavLink & {
   children?: NavLink[];
 };
 
-/** Landing-page anchor navigation — labels are nav-only, not section copy. */
+/** Landing-page anchor navigation — order matches homepage section flow in `src/routes/index.tsx`. */
 export const navItems: NavItem[] = [
   {
     label: "Platform",
@@ -14,16 +14,16 @@ export const navItems: NavItem[] = [
       { label: "Platform capabilities", href: "/#capabilities" },
     ],
   },
-  { label: "Solutions", href: "/#solutions" },
   { label: "Industries", href: "/#industries" },
+  { label: "Solutions", href: "/#solutions" },
   { label: "Security & Trust", href: "/#security" },
   { label: "Resources", href: "/#resources" },
   {
     label: "Company",
-    href: "/#footer",
+    href: "/#platform",
     children: [
-      { label: "About Inova AI", href: "/#footer" },
-      { label: "Contact", href: "/#footer" },
+      { label: "About BLDR", href: "/#platform" },
+      { label: "Book a Demo", href: "/book-demo" },
     ],
   },
 ];
