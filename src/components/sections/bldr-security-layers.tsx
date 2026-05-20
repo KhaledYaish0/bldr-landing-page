@@ -60,7 +60,9 @@ const dataIntegrations = [
 function SectionHeader() {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Security &amp; Trust</p>
+      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+        Security &amp; Trust
+      </p>
       <h2
         id="security-layers-heading"
         className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
@@ -68,9 +70,9 @@ function SectionHeader() {
         A governed security layer between AI and enterprise data.
       </h2>
       <p className="mt-4 text-balance text-muted-foreground">
-        BLDR places a monitored security gateway between AI agents, user interactions, tools, and internal
-        company knowledge. Every request can be checked, audited, and controlled before it reaches sensitive
-        systems.
+        BLDR places a monitored security gateway between AI agents, user interactions, tools, and
+        internal company knowledge. Every request can be checked, audited, and controlled before it
+        reaches sensitive systems.
       </p>
       <a
         href="#security"
@@ -100,8 +102,12 @@ function LogoChip({ letter, gradient }: { letter: string; gradient: string }) {
 function MetricTile({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-md border border-border/60 bg-surface/95 px-2.5 py-1.5 shadow-sm">
-      <div className="text-[8px] font-medium uppercase tracking-widest text-muted-foreground">{label}</div>
-      <div className="mt-0.5 font-display text-[13px] font-semibold leading-none text-foreground">{value}</div>
+      <div className="text-[8px] font-medium uppercase tracking-widest text-muted-foreground">
+        {label}
+      </div>
+      <div className="mt-0.5 font-display text-[13px] font-semibold leading-none text-foreground">
+        {value}
+      </div>
     </div>
   );
 }
@@ -313,8 +319,12 @@ function LabelLeft() {
 function LabelRightTop() {
   return (
     <div className="pointer-events-none absolute right-4 top-[10%] z-30 hidden max-w-[10rem] transition-transform duration-500 ease-out group-hover/stack:translate-x-1 lg:right-7 lg:block">
-      <p className="text-right font-display text-sm font-semibold text-foreground">your AI chats &amp; clients</p>
-      <p className="mt-1 text-right text-[10px] text-muted-foreground/80">agents · copilots · tools</p>
+      <p className="text-right font-display text-sm font-semibold text-foreground">
+        your AI chats &amp; clients
+      </p>
+      <p className="mt-1 text-right text-[10px] text-muted-foreground/80">
+        agents · copilots · tools
+      </p>
       <svg
         className="absolute -left-12 top-4 h-8 w-12 text-muted-foreground/50"
         viewBox="0 0 48 32"
@@ -331,7 +341,9 @@ function LabelRightTop() {
 function LabelRightBottom() {
   return (
     <div className="pointer-events-none absolute bottom-[12%] right-4 z-30 hidden max-w-[10rem] transition-transform duration-500 ease-out group-hover/stack:translate-x-1 lg:right-7 lg:block">
-      <p className="text-right font-display text-sm font-semibold text-foreground">your internal data</p>
+      <p className="text-right font-display text-sm font-semibold text-foreground">
+        your internal data
+      </p>
       <p className="mt-1 text-right text-[10px] text-muted-foreground/80">documents · CRM · ERP</p>
       <svg
         className="absolute -left-12 bottom-4 h-8 w-12 text-muted-foreground/50"
@@ -352,8 +364,12 @@ function MobileFallback() {
   return (
     <div className="relative mx-auto mt-10 max-w-md space-y-3 md:hidden">
       <div className="rounded-2xl border border-border bg-surface p-4 shadow-sm">
-        <h3 className="font-display text-sm font-semibold text-foreground">AI agents, chats &amp; clients</h3>
-        <p className="mt-1 text-xs text-muted-foreground">Requests arrive from chats, copilots, and agents.</p>
+        <h3 className="font-display text-sm font-semibold text-foreground">
+          AI agents, chats &amp; clients
+        </h3>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Requests arrive from chats, copilots, and agents.
+        </p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {aiClients.map((c, i) => (
             <LogoChip key={i} letter={c.letter} gradient={c.gradient} />
@@ -367,7 +383,9 @@ function MobileFallback() {
             <Shield className="h-3.5 w-3.5" />
           </span>
           <div>
-            <h3 className="font-display text-sm font-semibold text-foreground">BLDR Security Gateway</h3>
+            <h3 className="font-display text-sm font-semibold text-foreground">
+              BLDR Security Gateway
+            </h3>
             <p className="text-[11px] text-muted-foreground">monitors · audits · protects</p>
           </div>
         </div>
@@ -379,8 +397,12 @@ function MobileFallback() {
       </div>
 
       <div className="rounded-2xl border border-border bg-surface p-4 shadow-sm">
-        <h3 className="font-display text-sm font-semibold text-foreground">Enterprise internal data</h3>
-        <p className="mt-1 text-xs text-muted-foreground">Sensitive systems stay behind controlled access.</p>
+        <h3 className="font-display text-sm font-semibold text-foreground">
+          Enterprise internal data
+        </h3>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Sensitive systems stay behind controlled access.
+        </p>
         <div className="mt-3 grid grid-cols-4 gap-2">
           {dataIntegrations.slice(0, 8).map((Icon, i) => (
             <span
@@ -406,7 +428,10 @@ export function BldrSecurityLayers() {
       className="section-bg-elevated relative isolate overflow-hidden px-6 py-24 sm:py-32"
       aria-labelledby="security-layers-heading"
     >
-      <div className="bg-grid pointer-events-none absolute inset-0 opacity-20 dark:opacity-10" aria-hidden />
+      <div
+        className="bg-grid pointer-events-none absolute inset-0 opacity-20 dark:opacity-10"
+        aria-hidden
+      />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeader />

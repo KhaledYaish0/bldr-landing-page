@@ -95,17 +95,17 @@ Use this file to:
 
 ### Suggested palette
 
-| Role | Hex |
-|------|-----|
-| Main light background | `#FBFCFD` |
-| Secondary light background | `#E6EDF2` |
-| Soft blue-gray | `#EDF4F7` |
-| Faint cyan tint | `#E7F5F8` |
-| Card surface | `#FFFFFF` |
-| Border | `#D4E0E7` |
-| Heading navy | `#071629` |
-| Muted text | `#526270` |
-| Accent cyan | Keep existing BLDR cyan |
+| Role                       | Hex                     |
+| -------------------------- | ----------------------- |
+| Main light background      | `#FBFCFD`               |
+| Secondary light background | `#E6EDF2`               |
+| Soft blue-gray             | `#EDF4F7`               |
+| Faint cyan tint            | `#E7F5F8`               |
+| Card surface               | `#FFFFFF`               |
+| Border                     | `#D4E0E7`               |
+| Heading navy               | `#071629`               |
+| Muted text                 | `#526270`               |
+| Accent cyan                | Keep existing BLDR cyan |
 
 ### Acceptance criteria
 
@@ -361,19 +361,19 @@ npm test            # if available
 
 ## Phase tracking table
 
-| Phase | Status | Difficulty | Owner | Notes |
-|-------|--------|------------|-------|-------|
-| 1 — Branding foundation | Not started | Easy | | |
-| 2 — Navbar menu behavior | Not started | Medium | | |
-| 3 — Light-theme background rhythm | Not started | Medium | | |
-| 4 — Gulf background image checkpoint | Not started | Creative asset | | Not a coding phase |
-| 5 — Enterprise AI Gap refinement | Not started | Medium | | Depends on Phase 4 approval |
-| 6 — Use-case image checkpoint | Not started | Creative asset | | Not a coding phase |
-| 7 — Use-case Preview redesign | Not started | Medium/Hard | | Depends on Phase 6 approval |
-| 8 — Industry CTA + remove technical walkthrough | Not started | Easy/Medium | | |
-| 9 — BLDR Security Layers (replace Platform Overview) | Not started | Hard | | **Single prompt only** |
-| 10 — Footer / blog legal row | Not started | Easy/Medium | | |
-| 11 — Final QA and polish | Not started | Medium | | |
+| Phase                                                | Status      | Difficulty     | Owner | Notes                       |
+| ---------------------------------------------------- | ----------- | -------------- | ----- | --------------------------- |
+| 1 — Branding foundation                              | Not started | Easy           |       |                             |
+| 2 — Navbar menu behavior                             | Not started | Medium         |       |                             |
+| 3 — Light-theme background rhythm                    | Not started | Medium         |       |                             |
+| 4 — Gulf background image checkpoint                 | Not started | Creative asset |       | Not a coding phase          |
+| 5 — Enterprise AI Gap refinement                     | Not started | Medium         |       | Depends on Phase 4 approval |
+| 6 — Use-case image checkpoint                        | Not started | Creative asset |       | Not a coding phase          |
+| 7 — Use-case Preview redesign                        | Not started | Medium/Hard    |       | Depends on Phase 6 approval |
+| 8 — Industry CTA + remove technical walkthrough      | Not started | Easy/Medium    |       |                             |
+| 9 — BLDR Security Layers (replace Platform Overview) | Not started | Hard           |       | **Single prompt only**      |
+| 10 — Footer / blog legal row                         | Not started | Easy/Medium    |       |                             |
+| 11 — Final QA and polish                             | Not started | Medium         |       |                             |
 
 ---
 
@@ -484,6 +484,6 @@ Documents any known lint exceptions.
 
 ## Document history
 
-| Date | Author | Change |
-|------|--------|--------|
-| 2026-05-19 | — | Initial implementation plan created |
+| Date       | Author | Change                              |
+| ---------- | ------ | ----------------------------------- |
+| 2026-05-19 | —      | Initial implementation plan created |

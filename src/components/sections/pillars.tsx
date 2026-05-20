@@ -1,4 +1,12 @@
-import { MessageSquareCode, BookOpenCheck, ShieldCheck, FileText, Database, Server, ScrollText } from "lucide-react";
+import {
+  MessageSquareCode,
+  BookOpenCheck,
+  ShieldCheck,
+  FileText,
+  Database,
+  Server,
+  ScrollText,
+} from "lucide-react";
 
 function PromptVisual() {
   return (
@@ -107,35 +115,37 @@ export function Pillars() {
   return (
     <section className="section-bg-base py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-      <div className="max-w-2xl">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Three platform pillars</p>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          The foundation under every BLDR deployment.
-        </h2>
-      </div>
+        <div className="max-w-2xl">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Three platform pillars
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            The foundation under every BLDR deployment.
+          </h2>
+        </div>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        {pillars.map(({ icon: Icon, title, desc, Visual }, i) => (
-          <article
-            key={title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:border-[var(--cyan)]/40"
-            style={{ animation: `fade-up 0.6s ${i * 0.1}s ease-out both` }}
-          >
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--cyan)]/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-            <span className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface-muted text-[var(--cyan)]">
-              <Icon className="h-5 w-5" />
-            </span>
-            <h3 className="mt-5 font-display text-xl font-semibold text-foreground">{title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
-            <div className="mt-6">
-              <Visual />
-              <p className="mt-2 text-[10px] uppercase tracking-widest text-muted-foreground">
-                Visual placeholder · final product GIF coming soon
-              </p>
-            </div>
-          </article>
-        ))}
-      </div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {pillars.map(({ icon: Icon, title, desc, Visual }, i) => (
+            <article
+              key={title}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:border-[var(--cyan)]/40"
+              style={{ animation: `fade-up 0.6s ${i * 0.1}s ease-out both` }}
+            >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--cyan)]/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+              <span className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface-muted text-[var(--cyan)]">
+                <Icon className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 font-display text-xl font-semibold text-foreground">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <div className="mt-6">
+                <Visual />
+                <p className="mt-2 text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Visual placeholder · final product GIF coming soon
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

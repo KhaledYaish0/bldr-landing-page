@@ -38,12 +38,20 @@ const articles = [
 
 export function BlogSnapshot() {
   return (
-    <section aria-labelledby="latest-articles" className="section-bg-muted section-border-y border-t px-6 py-20">
+    <section
+      aria-labelledby="latest-articles"
+      className="section-bg-muted section-border-y border-t px-6 py-20"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">From the BLDR blog</p>
-            <h2 id="latest-articles" className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              From the BLDR blog
+            </p>
+            <h2
+              id="latest-articles"
+              className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+            >
               Latest thinking on enterprise AI.
             </h2>
           </div>

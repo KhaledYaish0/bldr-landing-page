@@ -15,7 +15,13 @@ const cases = [
     image: onboardingImg,
     imgAlt: "HR and people operations team guiding a new employee through enterprise onboarding",
     imageClass: "object-[center_30%]",
-    steps: ["New hire question", "HR policy lookup", "Grounded answer", "Escalate if needed", "Lower HR load"],
+    steps: [
+      "New hire question",
+      "HR policy lookup",
+      "Grounded answer",
+      "Escalate if needed",
+      "Lower HR load",
+    ],
   },
   {
     icon: FileText,
@@ -25,7 +31,13 @@ const cases = [
     image: policyImg,
     imgAlt: "Compliance professionals reviewing policy documents with grounded AI assistance",
     imageClass: "object-center",
-    steps: ["Question routed", "RAG over policies", "Cited answer", "Approval if cross-policy", "Faster compliance"],
+    steps: [
+      "Question routed",
+      "RAG over policies",
+      "Cited answer",
+      "Approval if cross-policy",
+      "Faster compliance",
+    ],
   },
   {
     icon: LifeBuoy,
@@ -45,7 +57,13 @@ const cases = [
     image: regulatedImg,
     imgAlt: "Operations leaders overseeing a regulated workflow with audit-ready controls",
     imageClass: "object-center",
-    steps: ["System trigger", "Policy guardrails", "Tool action", "Audit log", "Compliant repeatability"],
+    steps: [
+      "System trigger",
+      "Policy guardrails",
+      "Tool action",
+      "Audit log",
+      "Compliant repeatability",
+    ],
   },
   {
     icon: Headphones,
@@ -55,7 +73,13 @@ const cases = [
     image: serviceOpsImg,
     imgAlt: "Service operations team managing high-volume requests with AI-assisted handoff",
     imageClass: "object-[center_35%]",
-    steps: ["Request in", "Knowledge retrieval", "System action", "Handoff if needed", "Lower cost-to-serve"],
+    steps: [
+      "Request in",
+      "Knowledge retrieval",
+      "System action",
+      "Handoff if needed",
+      "Lower cost-to-serve",
+    ],
   },
 ];
 
@@ -64,13 +88,16 @@ export function UseCases() {
     <section id="solutions" className="section-bg-base py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Solutions</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Solutions
+          </p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Enterprise AI solutions for real operational workflows.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Built around real teams — HR, finance, IT, operations, and service. Each workflow shows the path
-            from trigger to governed outcome, so leaders see what production AI looks like in practice.
+            Built around real teams — HR, finance, IT, operations, and service. Each workflow shows
+            the path from trigger to governed outcome, so leaders see what production AI looks like
+            in practice.
           </p>
         </div>
 
@@ -107,7 +134,9 @@ export function UseCases() {
                       <span className="rounded-md border border-border bg-surface-muted/60 px-2 py-1 text-foreground/85 dark:bg-surface-muted/40">
                         {s}
                       </span>
-                      {idx < steps.length - 1 && <ArrowRight className="h-3 w-3 text-muted-foreground" />}
+                      {idx < steps.length - 1 && (
+                        <ArrowRight className="h-3 w-3 text-muted-foreground" />
+                      )}
                     </span>
                   ))}
                 </div>

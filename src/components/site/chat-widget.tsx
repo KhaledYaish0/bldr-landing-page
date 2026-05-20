@@ -28,7 +28,9 @@ export function ChatWidget() {
               </span>
               <div>
                 <div className="text-sm font-semibold text-foreground">BLDR Assistant</div>
-                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Preview · Phase 1</div>
+                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Preview · Phase 1
+                </div>
               </div>
             </div>
             <button
@@ -42,8 +44,8 @@ export function ChatWidget() {
 
           <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
             <div className="max-w-[85%] rounded-2xl rounded-bl-sm border border-border bg-surface-muted/60 px-3.5 py-2.5 text-sm text-foreground">
-              Hi — I can answer questions about the BLDR enterprise AI operating system. What would you like
-              to explore first?
+              Hi — I can answer questions about the BLDR enterprise AI operating system. What would
+              you like to explore first?
             </div>
             <div className="flex flex-wrap gap-2">
               {quickPrompts.map((p) => (
