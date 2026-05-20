@@ -31,24 +31,34 @@ export function Hero() {
             className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
             style={{ animation: "fade-up 0.7s 0.05s ease-out both" }}
           >
-            Enterprise rigor meets <span className="bg-gradient-to-r from-[var(--navy)] to-[var(--cyan)] bg-clip-text text-transparent dark:from-primary dark:to-[var(--cyan)]">no-code AI execution.</span>
+            Enterprise rigor meets{" "}
+            <span className="bg-gradient-to-r from-[var(--navy)] to-[var(--cyan)] bg-clip-text text-transparent dark:from-primary dark:to-[var(--cyan)]">
+              no-code AI execution.
+            </span>
           </h1>
           <p
             className="mt-6 max-w-xl text-balance text-base text-muted-foreground sm:text-lg"
             style={{ animation: "fade-up 0.7s 0.15s ease-out both" }}
           >
-            BLDR is a no-code enterprise AI operating system that helps organizations build AI agents,
-            automate workflows, connect legacy systems, and deploy secure AI across departments with
-            governance built in.
+            BLDR is a no-code enterprise AI operating system that helps organizations build AI
+            agents, automate workflows, connect legacy systems, and deploy secure AI across
+            departments with governance built in.
           </p>
-          <p className="mt-4 max-w-xl text-sm text-muted-foreground/90" style={{ animation: "fade-up 0.7s 0.25s ease-out both" }}>
-            Build AI agents with prompts. Ground them in enterprise knowledge. Deploy across operations,
-            systems, and teams — without creating shadow AI or waiting on long custom development cycles.
+          <p
+            className="mt-4 max-w-xl text-sm text-muted-foreground/90"
+            style={{ animation: "fade-up 0.7s 0.25s ease-out both" }}
+          >
+            Build AI agents with prompts. Ground them in enterprise knowledge. Deploy across
+            operations, systems, and teams — without creating shadow AI or waiting on long custom
+            development cycles.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3" style={{ animation: "fade-up 0.7s 0.3s ease-out both" }}>
+          <div
+            className="mt-8 flex flex-wrap items-center gap-3"
+            style={{ animation: "fade-up 0.7s 0.3s ease-out both" }}
+          >
             <a
-              href="#cta"
+              href="/book-demo"
               className="group inline-flex items-center gap-2 rounded-md bg-[var(--navy)] px-5 py-3 text-sm font-medium text-background shadow-elegant transition-all hover:translate-y-[-1px] hover:shadow-glow dark:bg-primary dark:text-primary-foreground"
             >
               Book a Demo
@@ -61,7 +71,7 @@ export function Hero() {
               Explore the Platform
             </a>
             <a
-              href="#ai-labs"
+              href="/book-demo"
               className="inline-flex items-center gap-2 rounded-md border border-[var(--cyan)]/40 bg-[var(--cyan)]/10 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-[var(--cyan)]/15"
             >
               Test it yourself
@@ -86,14 +96,21 @@ export function Hero() {
             className="relative mx-auto max-w-xl"
             style={{ animation: "fade-up 0.9s 0.2s ease-out both" }}
           >
-            <div className="absolute -inset-6 rounded-3xl bg-[var(--cyan)]/15 blur-3xl" aria-hidden />
+            <div
+              className="absolute -inset-6 rounded-3xl bg-[var(--cyan)]/15 blur-3xl"
+              aria-hidden
+            />
             <div className="relative rounded-2xl border border-border bg-surface p-3 shadow-elegant backdrop-blur">
               <div className="flex items-center justify-between px-2 pb-3 pt-1">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-[var(--cyan)] shadow-[0_0_10px_currentColor]" />
-                  <span className="text-xs font-medium text-muted-foreground">Inova AI Solutions Overview</span>
+                  <span className="text-xs font-medium text-muted-foreground">
+                    Inova AI Solutions Overview
+                  </span>
                 </div>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Live</span>
+                <span className="text-[10px] uppercase tracking-widest text-red-600 dark:text-red-400">
+                  Live
+                </span>
               </div>
               <div className="relative aspect-video overflow-hidden rounded-xl border border-border bg-black">
                 <iframe
@@ -111,7 +128,9 @@ export function Hero() {
               <div
                 key={label}
                 className={`absolute ${pos} hidden items-center gap-2 rounded-full border border-border bg-surface/95 px-3 py-1.5 text-xs font-medium text-foreground shadow-elegant backdrop-blur md:inline-flex`}
-                style={{ animation: `fade-up 0.7s ${0.5 + i * 0.15}s ease-out both, float-y 6s ${i * 0.6}s ease-in-out infinite alternate` }}
+                style={{
+                  animation: `fade-up 0.7s ${0.5 + i * 0.15}s ease-out both, float-y 6s ${i * 0.6}s ease-in-out infinite alternate`,
+                }}
               >
                 <Icon className="h-3.5 w-3.5 text-[var(--cyan)]" />
                 {label}

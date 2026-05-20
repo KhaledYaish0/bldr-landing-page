@@ -81,11 +81,7 @@ function MarqueeRow({
     >
       <div className={`flex w-max gap-3 ${animation} group-hover:[animation-play-state:paused]`}>
         {track.map((item, i) => (
-          <MarqueePill
-            key={i}
-            item={item}
-            decorative={i >= items.length}
-          />
+          <MarqueePill key={i} item={item} decorative={i >= items.length} />
         ))}
       </div>
     </div>
@@ -107,7 +103,10 @@ function MarqueePill({ item, decorative }: { item: MarqueeItem; decorative: bool
           style={item.kind === "brand" ? { color: item.color } : undefined}
           aria-hidden
         >
-          <Icon className="h-3.5 w-3.5 opacity-80 transition-opacity group-hover/item:opacity-100" aria-hidden />
+          <Icon
+            className="h-3.5 w-3.5 opacity-80 transition-opacity group-hover/item:opacity-100"
+            aria-hidden
+          />
         </span>
         <span>{item.name}</span>
       </span>
@@ -118,6 +117,7 @@ function MarqueePill({ item, decorative }: { item: MarqueeItem; decorative: bool
 export function PartnerMarquee() {
   return (
     <section
+      id="partners"
       aria-labelledby="enterprise-stack-label"
       className="section-bg-soft section-border-y border-y py-12"
     >

@@ -46,10 +46,10 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <BldrLogo />
           <span className="font-display text-base font-semibold tracking-tight text-foreground">
-            BLDR <span className="font-normal text-muted-foreground">by Inova AI</span>
+            BLDR
           </span>
         </a>
 
@@ -65,7 +65,7 @@ export function Header() {
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <a
-            href="#cta"
+            href="/book-demo"
             className="hidden rounded-md bg-[var(--navy)] px-4 py-2 text-sm font-medium text-background shadow-elegant transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-primary dark:text-primary-foreground sm:inline-flex"
           >
             Book a Demo

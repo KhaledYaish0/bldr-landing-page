@@ -64,9 +64,9 @@ export function UseCases() {
     <section id="solutions" className="section-bg-base py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Use-case preview</p>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Solutions</p>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            The workflows enterprise teams actually run on BLDR.
+            Enterprise AI solutions for real operational workflows.
           </h2>
           <p className="mt-4 text-muted-foreground">
             Built around real teams — HR, finance, IT, operations, and service. Each workflow shows the path

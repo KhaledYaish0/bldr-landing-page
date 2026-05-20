@@ -13,11 +13,10 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Capabilities } from "@/components/sections/capabilities";
 import { Personas } from "@/components/sections/personas";
 import { BldrSecurityLayers } from "@/components/sections/bldr-security-layers";
-import { AiLabs } from "@/components/sections/ai-labs";
 import { Resources } from "@/components/sections/resources";
 import { FinalCta } from "@/components/sections/final-cta";
+import { ComplianceTrustBar } from "@/components/sections/compliance-trust-bar";
 import { SiteFooter } from "@/components/sections/footer";
-import { BlogSnapshot } from "@/components/sections/blog-snapshot";
 import { LeadForm } from "@/components/sections/lead-form";
 
 export const Route = createFileRoute("/")({
@@ -62,10 +61,26 @@ function Index() {
             title="See BLDR for your industry."
             description="Get a short, role-relevant walkthrough showing how BLDR fits regulated workflows in your sector."
             fields={[
-              { name: "email", label: "Work email", type: "email", placeholder: "you@company.com", required: true },
               {
-                name: "industry", label: "Industry", type: "select", required: true,
-                options: ["Government", "Finance", "Healthcare", "Education", "Telecom / Shared Services", "Other"],
+                name: "email",
+                label: "Work email",
+                type: "email",
+                placeholder: "you@company.com",
+                required: true,
+              },
+              {
+                name: "industry",
+                label: "Industry",
+                type: "select",
+                required: true,
+                options: [
+                  "Government",
+                  "Finance",
+                  "Healthcare",
+                  "Education",
+                  "Telecom / Shared Services",
+                  "Other",
+                ],
               },
             ]}
             submitLabel="See BLDR for my industry"
@@ -75,12 +90,11 @@ function Index() {
           <Capabilities />
           <Personas />
           <BldrSecurityLayers />
-          <AiLabs />
           <Resources />
           <FinalCta />
         </main>
         <SiteFooter />
-        <BlogSnapshot />
+        <ComplianceTrustBar />
         <ChatWidget />
       </div>
     </ThemeProvider>

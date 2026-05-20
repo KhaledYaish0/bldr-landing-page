@@ -8,23 +8,22 @@ export type NavItem = NavLink & {
 export const navItems: NavItem[] = [
   {
     label: "Platform",
-    href: "#platform",
+    href: "/#platform",
     children: [
-      { label: "What BLDR Does", href: "#platform" },
-      { label: "Book a Demo", href: "#cta" },
+      { label: "Platform overview", href: "/#platform" },
+      { label: "Platform capabilities", href: "/#capabilities" },
     ],
   },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Industries", href: "#industries" },
-  { label: "Security & Trust", href: "#security" },
-  { label: "AI Labs", href: "#ai-labs" },
-  { label: "Resources", href: "#resources" },
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Security & Trust", href: "/#security" },
+  { label: "Resources", href: "/#resources" },
   {
     label: "Company",
-    href: "#footer",
+    href: "/#footer",
     children: [
-      { label: "About & contact", href: "#footer" },
-      { label: "Book a Demo", href: "#cta" },
+      { label: "About Inova AI", href: "/#footer" },
+      { label: "Contact", href: "/#footer" },
     ],
   },
 ];

@@ -3,7 +3,14 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Field =
-  | { name: string; label: string; type: "email" | "text"; placeholder: string; required?: boolean; maxLength?: number }
+  | {
+      name: string;
+      label: string;
+      type: "email" | "text";
+      placeholder: string;
+      required?: boolean;
+      maxLength?: number;
+    }
   | { name: string; label: string; type: "select"; options: string[]; required?: boolean };
 
 interface LeadFormProps {
@@ -20,7 +27,15 @@ const lightSectionBg: Record<string, string> = {
   "industry-cta": "section-bg-soft",
 };
 
-export function LeadForm({ id, eyebrow, title, description, fields, submitLabel, tone = "light" }: LeadFormProps) {
+export function LeadForm({
+  id,
+  eyebrow,
+  title,
+  description,
+  fields,
+  submitLabel,
+  tone = "light",
+}: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const lightBg = (id && lightSectionBg[id]) || "section-bg-soft";
@@ -49,7 +64,7 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
     >
       <div
         className={cn(
-          "mx-auto grid w-full max-w-6xl gap-8 rounded-2xl border p-6 sm:p-8 lg:grid-cols-12 lg:items-start lg:gap-10 lg:p-10",
+          "mx-auto grid w-full max-w-5xl gap-8 rounded-2xl border p-6 sm:p-8 lg:grid-cols-12 lg:items-center lg:gap-8 lg:p-10",
           tone === "dark"
             ? "border-white/10 bg-white/5 backdrop-blur dark:border-border dark:bg-surface-muted/60"
             : "border-border bg-surface shadow-elegant",
@@ -76,7 +91,9 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
             <p
               className={cn(
                 "mt-3 text-sm sm:text-base",
-                tone === "dark" ? "text-background/70 dark:text-muted-foreground" : "text-muted-foreground",
+                tone === "dark"
+                  ? "text-background/70 dark:text-muted-foreground"
+                  : "text-muted-foreground",
               )}
             >
               {description}
@@ -97,7 +114,9 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
               <CheckCircle2 className="mt-0.5 h-5 w-5 text-[var(--cyan)]" />
               <div>
                 <div className="font-semibold">Thanks — we'll be in touch.</div>
-                <p className="mt-1 text-sm opacity-80">A BLDR solutions architect will reach out within one business day.</p>
+                <p className="mt-1 text-sm opacity-80">
+                  A BLDR solutions architect will reach out within one business day.
+                </p>
               </div>
             </div>
           ) : (
@@ -110,7 +129,13 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
                     f.type === "select" ? "sm:col-span-2" : "",
                   )}
                 >
-                  <span className={tone === "dark" ? "text-background/80 dark:text-foreground/80" : "text-foreground/80"}>
+                  <span
+                    className={
+                      tone === "dark"
+                        ? "text-background/80 dark:text-foreground/80"
+                        : "text-foreground/80"
+                    }
+                  >
                     {f.label}
                   </span>
                   {f.type === "select" ? (
@@ -120,8 +145,14 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
                       defaultValue=""
                       className="h-10 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
                     >
-                      <option value="" disabled>Select…</option>
-                      {f.options.map((o) => <option key={o} value={o}>{o}</option>)}
+                      <option value="" disabled>
+                        Select…
+                      </option>
+                      {f.options.map((o) => (
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
+                      ))}
                     </select>
                   ) : (
                     <input
@@ -143,8 +174,16 @@ export function LeadForm({ id, eyebrow, title, description, fields, submitLabel,
                 {submitLabel}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
-              <p className={cn("text-[11px] sm:col-span-2", tone === "dark" ? "text-background/60 dark:text-muted-foreground" : "text-muted-foreground")}>
-                We respect your inbox. No spam — your details support a single follow-up from a BLDR solutions architect.
+              <p
+                className={cn(
+                  "text-[11px] sm:col-span-2",
+                  tone === "dark"
+                    ? "text-background/60 dark:text-muted-foreground"
+                    : "text-muted-foreground",
+                )}
+              >
+                We respect your inbox. No spam — your details support a single follow-up from a BLDR
+                solutions architect.
               </p>
             </form>
           )}

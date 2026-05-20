@@ -4,13 +4,7 @@ import { cn } from "@/lib/utils";
 import type { NavItem } from "./nav-config";
 import { navItems } from "./nav-config";
 
-function MobileNavItem({
-  item,
-  onNavigate,
-}: {
-  item: NavItem;
-  onNavigate: () => void;
-}) {
+function MobileNavItem({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
   const hasChildren = Boolean(item.children && item.children.length > 1);
   const [expanded, setExpanded] = useState(false);
 
@@ -37,7 +31,10 @@ function MobileNavItem({
       >
         <span>{item.label}</span>
         <ChevronDown
-          className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200", expanded && "rotate-180")}
+          className={cn(
+            "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
+            expanded && "rotate-180",
+          )}
           aria-hidden
         />
       </button>
@@ -85,7 +82,7 @@ export function HeaderNavMobile({ open, onClose }: HeaderNavMobileProps) {
           <MobileNavItem key={item.label} item={item} onNavigate={onClose} />
         ))}
         <a
-          href="#cta"
+          href="/book-demo"
           className="mt-3 rounded-md bg-[var(--navy)] px-4 py-2.5 text-center text-sm font-medium text-background shadow-elegant dark:bg-primary dark:text-primary-foreground"
           onClick={onClose}
         >

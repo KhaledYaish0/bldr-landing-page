@@ -1,12 +1,48 @@
 import { BldrLogo } from "@/components/site/bldr-logo";
 
-const cols = [
-  { h: "Product", links: ["Agent Builder", "Knowledge Layer", "Integrations", "Multi-LLM Routing", "Analytics"] },
-  { h: "Platform", links: ["BLDR OS", "MCP Tools", "Human-in-the-loop", "Sovereign Deployment", "Audit Logs"] },
-  { h: "Solutions", links: ["Employee Onboarding", "Policy Assistants", "IT Copilots", "Regulated Workflows", "Service Operations"] },
-  { h: "Industries", links: ["Government", "Finance", "Healthcare", "Education", "Telecom"] },
-  { h: "Company", links: ["About Inova AI", "Partners", "Careers", "Press", "Contact"] },
-  { h: "Trust", links: ["Security & Trust", "Governance", "Privacy", "DPA", "Status"] },
+type FooterLink = { label: string; href: string };
+
+type FooterColumn = { heading: string; links: FooterLink[] };
+
+/** Matches visible homepage sections and real routes only (Phase 8). */
+const footerColumns: FooterColumn[] = [
+  {
+    heading: "Platform",
+    links: [
+      { label: "What BLDR does", href: "/#platform" },
+      { label: "Platform capabilities", href: "/#capabilities" },
+      { label: "Security & Trust", href: "/#security" },
+      { label: "Book a demo", href: "/book-demo" },
+    ],
+  },
+  {
+    heading: "Solutions",
+    links: [
+      { label: "Enterprise AI solutions", href: "/#solutions" },
+      { label: "Employee onboarding automation", href: "/#solutions" },
+      { label: "Policy and document assistants", href: "/#solutions" },
+      { label: "AI-powered service operations", href: "/#solutions" },
+    ],
+  },
+  {
+    heading: "Industries",
+    links: [
+      { label: "Government", href: "/#industries" },
+      { label: "Finance", href: "/#industries" },
+      { label: "Healthcare", href: "/#industries" },
+      { label: "Education", href: "/#industries" },
+      { label: "Telecom / Shared Services", href: "/#industries" },
+    ],
+  },
+  {
+    heading: "Trust & company",
+    links: [
+      { label: "Resources", href: "/#resources" },
+      { label: "How BLDR works", href: "/#how-it-works" },
+      { label: "Enterprise integrations", href: "/#partners" },
+      { label: "Bring BLDR into production", href: "/#cta" },
+    ],
+  },
 ];
 
 export function SiteFooter() {
@@ -17,33 +53,40 @@ export function SiteFooter() {
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2">
               <BldrLogo />
-              <span className="font-display text-base font-semibold tracking-tight text-foreground">BLDR</span>
+              <span className="font-display text-base font-semibold tracking-tight text-foreground">
+                BLDR
+              </span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              The no-code enterprise AI operating system by Inova AI Solutions — built for organizations
-              that need governed AI in production, not pilots.
+              The no-code enterprise AI operating system by Inova AI Solutions — built for
+              organizations that need governed AI in production, not pilots.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["ISO 27001", "SOC 2 Ready", "GDPR", "Sovereign-ready"].map((c) => (
-                <span key={c} className="rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-medium text-muted-foreground shadow-sm">{c}</span>
-              ))}
-            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
-            {cols.map((c) => (
-              <div key={c.h}>
-                <div className="text-xs font-semibold uppercase tracking-widest text-foreground">{c.h}</div>
+          <nav
+            className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4"
+            aria-label="Footer"
+          >
+            {footerColumns.map((col) => (
+              <div key={col.heading}>
+                <div className="text-xs font-semibold uppercase tracking-widest text-foreground">
+                  {col.heading}
+                </div>
                 <ul className="mt-3 space-y-2">
-                  {c.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{l}</a>
+                  {col.links.map((link) => (
+                    <li key={`${col.heading}-${link.label}`}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        {link.label}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

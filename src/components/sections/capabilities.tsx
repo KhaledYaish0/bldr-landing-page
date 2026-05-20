@@ -97,7 +97,7 @@ export function Capabilities() {
   const current = tabs.find((t) => t.id === active)!;
   const Visual = current.visual;
   return (
-    <section className="section-bg-muted py-24 sm:py-32">
+    <section id="capabilities" className="section-bg-muted py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
       <div className="max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Platform capabilities</p>

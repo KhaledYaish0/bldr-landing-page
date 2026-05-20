@@ -60,7 +60,7 @@ const dataIntegrations = [
 function SectionHeader() {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Security layer</p>
+      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Security &amp; Trust</p>
       <h2
         id="security-layers-heading"
         className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"

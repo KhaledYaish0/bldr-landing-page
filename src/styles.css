@@ -101,6 +101,8 @@
   --section-muted: #EDF4F7;
   --section-tint: #E7F5F8;
   --section-elevated: #EDF4F7;
+  --section-final-cta-base: color-mix(in oklab, var(--cyan) 14%, var(--section-muted));
+  --section-cta-navy-bg: var(--navy);
   --section-border: #D4E0E7;
 }
 
@@ -133,6 +135,8 @@
   --section-muted: oklch(0.18 0.03 258);
   --section-tint: oklch(0.165 0.032 248);
   --section-elevated: oklch(0.21 0.035 258);
+  --section-final-cta-base: oklch(0.125 0.038 258);
+  --section-cta-navy-bg: oklch(0.11 0.045 258);
   --section-border: oklch(0.28 0.03 258);
 }
 
@@ -188,6 +192,29 @@
   background-image: radial-gradient(
     ellipse 75% 55% at 50% 100%,
     color-mix(in oklab, var(--cyan) 12%, transparent),
+    transparent 65%
+  );
+}
+@utility section-bg-final-cta {
+  background-color: var(--section-final-cta-base);
+  background-image:
+    radial-gradient(
+      ellipse 88% 58% at 50% 105%,
+      color-mix(in oklab, var(--cyan) 24%, transparent),
+      transparent 64%
+    ),
+    radial-gradient(
+      ellipse 52% 42% at 92% 12%,
+      color-mix(in oklab, var(--cyan) 12%, transparent),
+      transparent 58%
+    );
+}
+/** Navy band behind Final CTA — BLDR navy + soft cyan glow from bottom (matches legacy CTA rhythm). */
+@utility section-bg-navy-cta {
+  background-color: var(--section-cta-navy-bg);
+  background-image: radial-gradient(
+    ellipse 75% 55% at 50% 100%,
+    color-mix(in oklab, var(--cyan) 16%, transparent),
     transparent 65%
   );
 }

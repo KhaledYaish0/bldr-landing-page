@@ -4,23 +4,59 @@ import { cn } from "@/lib/utils";
 import gulfAtmosphere from "@/assets/gulf-region-atmosphere.png";
 
 const without = [
-  { t: "AI pilots stay stuck", d: "Teams can test AI ideas, but struggle to move them into governed production workflows." },
-  { t: "Shadow AI spreads", d: "Employees use public tools because there is no secure internal AI environment." },
-  { t: "Legacy systems stay disconnected", d: "Data remains trapped across ERP, CRM, PDFs, policies, and internal systems." },
-  { t: "IT becomes the bottleneck", d: "Every new workflow feels like a custom development project." },
-  { t: "Governance arrives too late", d: "Security and compliance reviews show up only after the damage is done." },
+  {
+    t: "AI pilots stay stuck",
+    d: "Teams can test AI ideas, but struggle to move them into governed production workflows.",
+  },
+  {
+    t: "Shadow AI spreads",
+    d: "Employees use public tools because there is no secure internal AI environment.",
+  },
+  {
+    t: "Legacy systems stay disconnected",
+    d: "Data remains trapped across ERP, CRM, PDFs, policies, and internal systems.",
+  },
+  {
+    t: "IT becomes the bottleneck",
+    d: "Every new workflow feels like a custom development project.",
+  },
+  {
+    t: "Governance arrives too late",
+    d: "Security and compliance reviews show up only after the damage is done.",
+  },
 ];
 const withB = [
-  { t: "Workflows move toward production", d: "Prototype to deployment in a governed environment built for enterprise scale." },
-  { t: "AI usage becomes controlled", d: "Centralized AI surface replaces shadow tools with policy-aware agents." },
-  { t: "Knowledge becomes usable", d: "Documents, systems, and policies grounded into every agent answer." },
-  { t: "Business teams move faster", d: "Citizen developers ship workflows without waiting on engineering queues." },
-  { t: "Governance is built in", d: "RBAC, audit logs, approvals, and tool permissions live inside the platform." },
+  {
+    t: "Workflows move toward production",
+    d: "Prototype to deployment in a governed environment built for enterprise scale.",
+  },
+  {
+    t: "AI usage becomes controlled",
+    d: "Centralized AI surface replaces shadow tools with policy-aware agents.",
+  },
+  {
+    t: "Knowledge becomes usable",
+    d: "Documents, systems, and policies grounded into every agent answer.",
+  },
+  {
+    t: "Business teams move faster",
+    d: "Citizen developers ship workflows without waiting on engineering queues.",
+  },
+  {
+    t: "Governance is built in",
+    d: "RBAC, audit logs, approvals, and tool permissions live inside the platform.",
+  },
 ];
 
 function Column({
-  title, items, tone,
-}: { title: string; items: typeof without; tone: "muted" | "brand" }) {
+  title,
+  items,
+  tone,
+}: {
+  title: string;
+  items: typeof without;
+  tone: "muted" | "brand";
+}) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
     <div
@@ -45,11 +81,7 @@ function Column({
         {items.map((it, i) => {
           const open = openIdx === i;
           return (
-            <li
-              key={it.t}
-              onMouseEnter={() => setOpenIdx(i)}
-              onMouseLeave={() => setOpenIdx(null)}
-            >
+            <li key={it.t} onMouseEnter={() => setOpenIdx(i)} onMouseLeave={() => setOpenIdx(null)}>
               <button
                 type="button"
                 onClick={() => setOpenIdx(open ? null : i)}
@@ -88,51 +120,31 @@ function Column({
 
 export function Problem() {
   return (
-    <section className="section-bg-muted relative isolate overflow-hidden py-24 sm:py-32">
+    <section className="relative isolate overflow-hidden bg-transparent py-24 sm:py-32 dark:bg-[var(--section-muted)]">
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="relative w-full overflow-hidden py-16 text-center sm:py-20">
-          <div
-            className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2.5rem] dark:hidden"
-            aria-hidden
-          >
-            <div className="absolute inset-0 flex items-center justify-end">
-              <img
-                src={gulfAtmosphere}
-                alt=""
-                className="h-full w-[95%] max-w-[1400px] translate-x-[10%] object-contain object-right opacity-[0.5] saturate-[0.9] sm:opacity-[0.52] [mask-image:linear-gradient(to_left,black_55%,transparent_100%)]"
-              />
-            </div>
-          </div>
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--section-muted)] from-[0%] via-[color-mix(in_oklab,var(--section-muted)_82%,transparent)] via-[48%] to-transparent opacity-95 dark:hidden"
-            aria-hidden
+        <div className="relative w-full overflow-visible pt-16 pb-28 text-center sm:pt-20 sm:pb-36">
+          {/* Viewport-right edge; breakout from max-w column (not clipped by rounded intro mask) */}
+          <img
+            src={gulfAtmosphere}
+            alt=""
+            className="pointer-events-none absolute top-1/2 right-[calc((100%-100vw)/2)] z-0 h-[min(155%,52rem)] min-h-[18rem] w-[min(135vw,120rem)] max-w-none -translate-y-1/2 object-cover object-right object-[100%_50%] opacity-[0.72] saturate-[0.9] sm:h-[min(162%,56rem)] sm:opacity-[0.76] [mask-image:linear-gradient(to_left,black_58%,transparent_100%)] dark:hidden"
           />
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_80%_at_72%_50%,transparent_0%,var(--section-muted)_72%)] opacity-70 dark:hidden"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[var(--section-muted)] to-transparent dark:hidden"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[var(--section-muted)] to-transparent dark:hidden"
-            aria-hidden
-          />
-          <div className="relative z-10 mx-auto max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">The enterprise AI gap</p>
+          <div className="relative z-10 mx-auto max-w-3xl px-3 dark:[text-shadow:none] [text-shadow:0_0_24px_color-mix(in_oklab,var(--background)_92%,transparent),0_1px_2px_color-mix(in_oklab,var(--background)_70%,transparent)]">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              The enterprise AI gap
+            </p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               Why do enterprise AI projects stall before production?
             </h2>
             <p className="mt-4 text-balance text-muted-foreground">
-              Most enterprise AI initiatives slow down because they get trapped between ambition and execution.
-              Teams face IT bottlenecks, fragmented systems, security objections, unclear ownership, and a lack
-              of governed tools practical enough for everyday deployment.
+              Most enterprise AI initiatives slow down because they get trapped between ambition and
+              execution. Teams face IT bottlenecks, fragmented systems, security objections, unclear
+              ownership, and a lack of governed tools practical enough for everyday deployment.
             </p>
           </div>
         </div>
 
-        <div className="relative mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="relative mt-16 grid gap-6 sm:mt-20 lg:mt-24 lg:grid-cols-2">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-12 hidden h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--cyan)]/40 to-transparent lg:block"
@@ -144,6 +156,3 @@ export function Problem() {
     </section>
   );
 }
-
-
-
