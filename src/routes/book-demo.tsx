@@ -1,10 +1,14 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { format } from "date-fns";
 import { ArrowRight, CheckCircle2, Server, ShieldCheck, Workflow } from "lucide-react";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Header } from "@/components/site/header";
 import { SiteFooter } from "@/components/sections/footer";
 import { ChatWidget } from "@/components/site/chat-widget";
+import { DemoCalendar } from "@/components/book-demo/demo-calendar";
+import { getBrowserTimeZone } from "@/lib/demo-booking";
+import { DemoContactSection } from "@/components/book-demo/demo-contact-section";
 
 const industries = [
   "Government",
@@ -57,10 +61,23 @@ export const Route = createFileRoute("/book-demo")({
 
 function BookDemoPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedDemoDay, setSelectedDemoDay] = useState<Date | undefined>();
+  const [calendarError, setCalendarError] = useState<string | null>(null);
+  const browserTz = getBrowserTimeZone();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!selectedDemoDay) {
+      setCalendarError("Please select a preferred demo day.");
+      return;
+    }
+    setCalendarError(null);
     setSubmitted(true);
+  }
+
+  function handleSelectDay(date: Date | undefined) {
+    setSelectedDemoDay(date);
+    if (date) setCalendarError(null);
   }
 
   return (
@@ -94,7 +111,15 @@ function BookDemoPage() {
             </div>
 
             <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-start">
-              <section className="rounded-3xl border border-border bg-surface p-6 shadow-elegant sm:p-8 lg:col-span-7">
+              <div className="order-first flex flex-col gap-8 lg:col-span-5">
+                <DemoCalendar
+                  selected={selectedDemoDay}
+                  onSelect={handleSelectDay}
+                  error={calendarError}
+                />
+              </div>
+
+              <section className="order-last rounded-3xl border border-border bg-surface p-6 shadow-elegant sm:p-8 lg:order-none lg:col-span-7">
                 {submitted ? (
                   <div className="rounded-2xl border border-[var(--cyan)]/30 bg-[var(--cyan)]/8 p-6">
                     <div className="flex items-start gap-3">
@@ -107,11 +132,29 @@ function BookDemoPage() {
                           Thanks for reaching out. A BLDR solutions specialist will follow up with a
                           tailored walkthrough based on your enterprise workflow priorities.
                         </p>
+                        {selectedDemoDay ? (
+                          <p className="mt-3 rounded-lg border border-border/80 bg-background/60 px-3 py-2 text-sm text-foreground dark:bg-background/40">
+                            <span className="font-medium">Preferred demo day: </span>
+                            <time dateTime={selectedDemoDay.toISOString()}>
+                              {format(selectedDemoDay, "EEEE, MMMM d, yyyy")}
+                            </time>
+                            <span className="mt-1 block text-xs text-muted-foreground">
+                              Timezone reference: {browserTz}
+                            </span>
+                          </p>
+                        ) : null}
                       </div>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+                    <input
+                      type="hidden"
+                      name="preferredDemoDayISO"
+                      value={selectedDemoDay?.toISOString() ?? ""}
+                    />
+                    <input type="hidden" name="preferredDemoTimezone" value={browserTz} />
+
                     <TextField label="Full name" name="name" required />
                     <TextField label="Work email" name="email" type="email" required />
                     <TextField label="Company" name="company" required />
@@ -141,38 +184,55 @@ function BookDemoPage() {
                       placeholder="Tell us what you want the walkthrough to focus on."
                       className="sm:col-span-2"
                     />
-                    <button
-                      type="submit"
-                      className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--navy)] px-5 py-3 text-sm font-medium text-background shadow-elegant transition-all hover:-translate-y-0.5 hover:shadow-glow dark:bg-primary dark:text-primary-foreground sm:col-span-2"
-                    >
-                      Request Demo
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                    </button>
+                    <div className="sm:col-span-2">
+                      {selectedDemoDay ? (
+                        <p className="mb-3 rounded-lg border border-[var(--cyan)]/20 bg-[var(--cyan)]/6 px-3 py-2 text-sm text-foreground">
+                          <span className="font-medium">Preferred demo day: </span>
+                          <time dateTime={selectedDemoDay.toISOString()}>
+                            {format(selectedDemoDay, "EEEE, MMMM d, yyyy")}
+                          </time>
+                        </p>
+                      ) : (
+                        <p className="mb-3 text-sm text-muted-foreground">
+                          Select a preferred day in the calendar — we&apos;ll coordinate available
+                          times in follow-up.
+                        </p>
+                      )}
+                      <button
+                        type="submit"
+                        className="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--navy)] px-5 py-3 text-sm font-medium text-background shadow-elegant transition-all hover:-translate-y-0.5 hover:shadow-glow dark:bg-primary dark:text-primary-foreground"
+                      >
+                        Request Demo
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                      </button>
+                    </div>
                   </form>
                 )}
               </section>
-
-              <aside className="space-y-4 lg:col-span-5">
-                {supportCards.map(({ icon: Icon, title, copy }) => (
-                  <article
-                    key={title}
-                    className="rounded-2xl border border-border bg-surface/90 p-5 shadow-sm backdrop-blur dark:bg-surface/80"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-[var(--cyan)]/30 bg-[var(--cyan)]/10 text-[var(--cyan)]">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <h2 className="font-display text-base font-semibold text-foreground">
-                          {title}
-                        </h2>
-                        <p className="mt-1 text-sm text-muted-foreground">{copy}</p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </aside>
             </div>
+
+            <div className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-3">
+              {supportCards.map(({ icon: Icon, title, copy }) => (
+                <article
+                  key={title}
+                  className="rounded-2xl border border-border bg-surface/90 p-5 shadow-sm backdrop-blur dark:bg-surface/80"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-[var(--cyan)]/30 bg-[var(--cyan)]/10 text-[var(--cyan)]">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h2 className="font-display text-base font-semibold text-foreground">
+                        {title}
+                      </h2>
+                      <p className="mt-1 text-sm text-muted-foreground">{copy}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <DemoContactSection />
           </div>
         </main>
         <SiteFooter />
@@ -205,7 +265,7 @@ function TextField({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
+        className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan)]/30"
       />
     </label>
   );
@@ -229,7 +289,7 @@ function SelectField({
         name={name}
         required={required}
         defaultValue=""
-        className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
+        className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm text-foreground focus:border-[var(--cyan)]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan)]/30"
       >
         <option value="" disabled>
           Select...
@@ -262,7 +322,7 @@ function TextareaField({
         name={name}
         rows={5}
         placeholder={placeholder}
-        className="w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none"
+        className="w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--cyan)]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan)]/30"
       />
     </label>
   );
