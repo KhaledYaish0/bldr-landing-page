@@ -189,14 +189,14 @@ const items = [
     Mark: IsoGlobeMark,
   },
   {
-    label: "GDPR",
-    helper: "Privacy-aware workflows",
-    Mark: GdprStarsMark,
-  },
-  {
     label: "SOC 2 Ready",
     helper: "Controls-ready posture",
     Mark: Soc2TypographicMark,
+  },
+  {
+    label: "GDPR",
+    helper: "Privacy-aware workflows",
+    Mark: GdprStarsMark,
   },
   {
     label: "Sovereign-ready",

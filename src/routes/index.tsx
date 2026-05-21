@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Header } from "@/components/site/header";
-import { ChatWidget } from "@/components/site/chat-widget";
 import { Hero } from "@/components/sections/hero";
 import { PartnerMarquee } from "@/components/sections/marquee";
 import { Problem } from "@/components/sections/problem";
@@ -95,7 +94,6 @@ function Index() {
         </main>
         <SiteFooter />
         <ComplianceTrustBar />
-        <ChatWidget />
       </div>
     </ThemeProvider>
   );

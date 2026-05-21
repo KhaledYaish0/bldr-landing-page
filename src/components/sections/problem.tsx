@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { AlertTriangle, Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import gulfAtmosphere from "@/assets/gulf-region-atmosphere.png";
-
 const without = [
   {
     t: "AI pilots stay stuck",
@@ -120,31 +118,34 @@ function Column({
 
 export function Problem() {
   return (
-    <section className="relative isolate overflow-hidden bg-transparent py-24 sm:py-32 dark:bg-[var(--section-muted)]">
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="relative w-full overflow-visible pt-16 pb-28 text-center sm:pt-20 sm:pb-36">
-          {/* Viewport-right edge; breakout from max-w column (not clipped by rounded intro mask) */}
-          <img
-            src={gulfAtmosphere}
-            alt=""
-            className="pointer-events-none absolute top-1/2 right-[calc((100%-100vw)/2)] z-0 h-[min(155%,52rem)] min-h-[18rem] w-[min(135vw,120rem)] max-w-none -translate-y-1/2 object-cover object-right object-[100%_50%] opacity-[0.72] saturate-[0.9] sm:h-[min(162%,56rem)] sm:opacity-[0.76] [mask-image:linear-gradient(to_left,black_58%,transparent_100%)] dark:hidden"
-          />
-          <div className="relative z-10 mx-auto max-w-3xl px-3 dark:[text-shadow:none] [text-shadow:0_0_24px_color-mix(in_oklab,var(--background)_92%,transparent),0_1px_2px_color-mix(in_oklab,var(--background)_70%,transparent)]">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              The enterprise AI gap
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Why do enterprise AI projects stall before production?
-            </h2>
-            <p className="mt-4 text-balance text-muted-foreground">
-              Most enterprise AI initiatives slow down because they get trapped between ambition and
-              execution. Teams face IT bottlenecks, fragmented systems, security objections, unclear
-              ownership, and a lack of governed tools practical enough for everyday deployment.
-            </p>
+    <section className="section-bg-navy-cta relative isolate overflow-hidden px-6 py-24 sm:py-32">
+      <div className="bg-grid absolute inset-0 opacity-[0.22] dark:opacity-[0.12]" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-1/2 -z-0 mx-auto h-56 max-w-3xl -translate-y-1/2 rounded-full bg-[var(--cyan)]/14 blur-3xl dark:bg-[var(--cyan)]/18"
+        aria-hidden
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl sm:px-8 lg:px-10">
+        <div className="relative w-full pb-14 text-center sm:pb-20">
+          <div className="relative z-10 mx-auto max-w-3xl px-3">
+            <div className="rounded-3xl border border-border bg-surface p-8 text-center shadow-elegant sm:p-10 md:p-12">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--cyan)]">
+                The enterprise AI gap
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Why do enterprise AI projects stall before production?
+              </h2>
+              <p className="mt-4 text-balance text-muted-foreground">
+                Most enterprise AI initiatives slow down because they get trapped between ambition
+                and execution. Teams face IT bottlenecks, fragmented systems, security objections,
+                unclear ownership, and a lack of governed tools practical enough for everyday
+                deployment.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="relative mt-16 grid gap-6 sm:mt-20 lg:mt-24 lg:grid-cols-2">
+        <div className="relative mt-10 grid gap-6 sm:mt-14 lg:mt-16 lg:grid-cols-2">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-12 hidden h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--cyan)]/40 to-transparent lg:block"

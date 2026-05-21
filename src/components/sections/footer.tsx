@@ -88,6 +88,28 @@ export function SiteFooter() {
             ))}
           </nav>
         </div>
+
+        <div className="mt-14 border-t border-border/70 pt-8 md:mt-16 md:pt-10">
+          <div className="flex flex-col items-center justify-center gap-5 text-center md:flex-row md:justify-between md:gap-6 md:text-left">
+            <p className="text-xs text-muted-foreground sm:text-sm">
+              © 2026 BLDR by Inova AI Solutions. All rights reserved.
+            </p>
+            <div className="flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
+              <a
+                href="/terms"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Terms and Conditions
+              </a>
+              <a
+                href="/privacy"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
